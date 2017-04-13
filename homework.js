@@ -53,6 +53,7 @@ function makeQuestion(newQuestion) {
 
 window.addEventListener('load', function () {
 
+let score = 0;
 
     function getNewQuestion() {
         let request = new XMLHttpRequest();
@@ -71,12 +72,23 @@ window.addEventListener('load', function () {
             console.log(response);
             makeQuestion(newQuestion);
 
-            
+
+// record the score for the first correct answer, then continue adding
+// new scores to the current score
+
+score = score + response[0].value;
+console.log(score)
+
+let newScore = document.querySelector('.Score');
+    newScore.textContent = score;
+
         });
 
         request.send();
+        
     }
 
+  
     getNewQuestion();
 
             let btn = document.querySelector('.button');
@@ -84,6 +96,9 @@ window.addEventListener('load', function () {
                 console.log('new question');
                 getNewQuestion();
             });
+
+        
+
 
 });
 
