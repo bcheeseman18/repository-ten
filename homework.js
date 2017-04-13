@@ -76,8 +76,11 @@ let score = 0;
 // record the score for the first correct answer, then continue adding
 // new scores to the current score
 
+if (response[0].question === response[0].answer); {
 score = score + response[0].value;
-console.log(score)
+console.log(score);
+} else }
+console.log('false'); 
 
 let newScore = document.querySelector('.Score');
     newScore.textContent = score;
